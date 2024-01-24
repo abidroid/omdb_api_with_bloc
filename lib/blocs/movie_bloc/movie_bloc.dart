@@ -11,6 +11,10 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   MovieBloc() : super(MovieInitial()) {
     on<MovieEvent>((event, emit) async {
+      if (event is ClearTextEvent) {
+        emit(MovieInitial());
+      }
+
       if (event is LoadMovieEvent) {
         emit(MovieLoadingState());
 
@@ -19,7 +23,8 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
           emit(MovieLoadedState(movie: movie));
         } catch (e) {
-          emit(MovieErrorState());
+          print(e);
+          emit(MovieErrorState(message: e.toString()));
         }
       }
     });

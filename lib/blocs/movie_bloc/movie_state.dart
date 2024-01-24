@@ -17,6 +17,10 @@ class MovieLoadedState extends MovieState {
   const MovieLoadedState({required this.movie});
 }
 
-class MovieErrorState extends MovieState {}
+class MovieErrorState extends MovieState {
+  final String message;
+
+  const MovieErrorState({required this.message});
+}
 
 class MovieNotFoundState extends MovieState {}

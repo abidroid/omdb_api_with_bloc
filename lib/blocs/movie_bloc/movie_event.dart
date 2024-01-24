@@ -12,3 +12,5 @@ class LoadMovieEvent extends MovieEvent {
 
   const LoadMovieEvent({required this.movieName});
 }
+
+class ClearTextEvent extends MovieEvent{}
