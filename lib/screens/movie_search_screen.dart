@@ -73,8 +73,7 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
               height: 16,
             ),
             Expanded(
-              child: BlocConsumer<MovieBloc, MovieState>(
-                listener: (context, state) {},
+              child: BlocBuilder<MovieBloc, MovieState>(
                 builder: (context, state) {
                   if (state is MovieInitial) {
                     return const Center(
